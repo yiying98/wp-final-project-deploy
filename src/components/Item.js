@@ -59,7 +59,7 @@ const useStyle = makeStyles((thems) => ({
 }))
 
 const Item = ({ props }) => {
-    const { id,productName, onSalePrice, address,  traderName, expirationDate, quantity, } = props;
+    const { id,productName, onSalePrice, address, imageUrl, avatarUrl, traderName, discription, expirationDate, quantity, } = props;
     const classes = useStyle();
 
 
@@ -91,7 +91,7 @@ const Item = ({ props }) => {
                     <Box className={classes.box} style={{ backgroundColor: '#DDDDFF' }}>{onSalePrice}</Box>
                 </Grid>
                 {/* <CardMedia className={classes.media} image={imageUrl} /> */}
-                <CardMedia className={classes.media} ><img src={props.img[0]['0']} alt='picture1' width="245" height="220"></img></CardMedia>
+                <CardMedia className={classes.media} ><img src={props.img[0]['0']} width="245" height="220"></img></CardMedia>
                 <CardContent className={classes.info}>
                     <Typography variant="body2" component="p">
                         {address}

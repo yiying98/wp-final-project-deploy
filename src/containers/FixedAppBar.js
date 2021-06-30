@@ -139,7 +139,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from "@material-ui/core/Button";
 import { useTheme } from '@material-ui/core/styles';
 import useStyles from '../assests/style/Style.js';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Divider, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
@@ -165,7 +165,7 @@ const FixedAppBar = ({ pageComponent, isLogin, loggedin, serachItem, searchType,
 
     const handleLogout = (e) => {
         console.log(e.currentTarget.value);
-        if (e.currentTarget.value === "2") {
+        if (e.currentTarget.value === "0") {
             alert("logout")
             loggedin(false, null);
         }

@@ -1,9 +1,11 @@
-
+import NotificationsIcon from '@material-ui/icons/Notifications';
+import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import HomeIcon from '@material-ui/icons/Home';
 import RoomIcon from '@material-ui/icons/Room';
-
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import LocalMallIcon from '@material-ui/icons/LocalMall';
 import React from 'react';
 
 

@@ -3,6 +3,7 @@ import { GoogleMap, LoadScript, Marker, InfoWindow  } from '@react-google-maps/a
 import axios from '../../api';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
+import instance from '../../api';
 const MapContainer = () => {
   const [ selected, setSelected ] = useState({});
   const [items, setItems] = useState([]);
@@ -19,29 +20,29 @@ const MapContainer = () => {
   const onSelect = item => {
       setSelected(item);
     }
-  // const locations = [
-  //     {
-  //       name: "Location 1",
-  //       location: { 
-  //         lat: 25.019096,
-  //         lng: 121.546366
-  //       },
-  //     },
-  //     {
-  //       name: "Location 2",
-  //       location: { 
-  //         lat: 25.03876,
-  //         lng: 121.521604
-  //       },
-  //     },
-  //     {
-  //       name: "Location 3",
-  //       location: { 
-  //         lat: 25.058547,
-  //         lng: 121.563281
-  //       },
-  //     },
-  //   ];
+  const locations = [
+      {
+        name: "Location 1",
+        location: { 
+          lat: 25.019096,
+          lng: 121.546366
+        },
+      },
+      {
+        name: "Location 2",
+        location: { 
+          lat: 25.03876,
+          lng: 121.521604
+        },
+      },
+      {
+        name: "Location 3",
+        location: { 
+          lat: 25.058547,
+          lng: 121.563281
+        },
+      },
+    ];
   
 
     useEffect(() => {

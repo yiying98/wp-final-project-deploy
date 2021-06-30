@@ -28,7 +28,7 @@ const Register = () => {
 		event.preventDefault();
 		console.log(firstname)
 		console.log(lastname)
-		
+
 		const {
 			data: { message }
 		} = await axios.post('/api/register', {

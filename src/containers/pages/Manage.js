@@ -23,13 +23,14 @@ import EditIcon from '@material-ui/icons/Edit';
 import FilterListIcon from '@material-ui/icons/FilterList';
 import AddIcon from '@material-ui/icons/Add';
 import axios from '../../api';
+import { red } from '@material-ui/core/colors';
 import { Redirect } from "react-router-dom";
+import { Button } from "antd";
 
 
-
-// function createData(productName, address, imageUrl, avatarUrl, traderName, discription, expirationDate, onSalePrice, originalPrice, quantity, id) {
-//     return { productName, address, imageUrl, avatarUrl, traderName, discription, expirationDate, onSalePrice, originalPrice, quantity, id };
-// }
+function createData(productName, address, imageUrl, avatarUrl, traderName, discription, expirationDate, onSalePrice, originalPrice, quantity, id) {
+    return { productName, address, imageUrl, avatarUrl, traderName, discription, expirationDate, onSalePrice, originalPrice, quantity, id };
+}
 
 
 function descendingComparator(a, b, orderBy) {
@@ -162,7 +163,7 @@ const EnhancedTableToolbar = (props) => {
         const quantity = row.quantity;
         const onsaleprice = row.onSalePrice;
         const {
-            data: { message },
+            data: { messages, message },
         } = await axios.post('/api/delete-item', { tradername, item, quantity, onsaleprice })
         alert(message);
         selected.splice(0, 1);
@@ -307,27 +308,27 @@ export default function NewEnhancedTable({ userName, selectedRow, setSelectedRow
         setSelected([]);
     };
 
-    // const handleClick1 = (event, name) => {
+    const handleClick1 = (event, name) => {
 
-    //     const selectedIndex = selected.indexOf(name);
+        const selectedIndex = selected.indexOf(name);
 
-    //     let newSelected = [];
+        let newSelected = [];
 
-    //     if (selectedIndex === -1) {
-    //         newSelected = newSelected.concat(selected, name);
-    //     } else if (selectedIndex === 0) {
-    //         newSelected = newSelected.concat(selected.slice(1));
-    //     } else if (selectedIndex === selected.length - 1) {
-    //         newSelected = newSelected.concat(selected.slice(0, -1));
-    //     } else if (selectedIndex > 0) {
-    //         newSelected = newSelected.concat(
-    //             selected.slice(0, selectedIndex),
-    //             selected.slice(selectedIndex + 1),
-    //         );
-    //     }
-    //     console.log(newSelected)
-    //     setSelected(newSelected);
-    // };
+        if (selectedIndex === -1) {
+            newSelected = newSelected.concat(selected, name);
+        } else if (selectedIndex === 0) {
+            newSelected = newSelected.concat(selected.slice(1));
+        } else if (selectedIndex === selected.length - 1) {
+            newSelected = newSelected.concat(selected.slice(0, -1));
+        } else if (selectedIndex > 0) {
+            newSelected = newSelected.concat(
+                selected.slice(0, selectedIndex),
+                selected.slice(selectedIndex + 1),
+            );
+        }
+        console.log(newSelected)
+        setSelected(newSelected);
+    };
 
     const handleClick = (event, name, row) => {
         const selectedIndex = selected.indexOf(name);
@@ -412,8 +413,8 @@ export default function NewEnhancedTable({ userName, selectedRow, setSelectedRow
                                                 {row.productName}
                                             </TableCell>
                                             <TableCell align="right">{row.address}</TableCell>
-                                            <TableCell align="right"><img src={row.img[0]['0']} alt='pic1'></img></TableCell>
-                                            <TableCell align="right"><img src={row.img[0]['1']} alt='pic2'></img></TableCell>
+                                            <TableCell align="right"><img src={row.img[0]['0']}></img></TableCell>
+                                            <TableCell align="right"><img src={row.img[0]['1']}></img></TableCell>
                                             {/* <TableCell align="right"><img src={row.imageUrl}></img></TableCell>
                                             <TableCell align="right"><img src={row.avatarUrl}></img></TableCell> */}
                                             <TableCell align="right">{row.traderName}</TableCell>

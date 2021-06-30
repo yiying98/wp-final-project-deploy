@@ -1,20 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Container from "@material-ui/core/Container";
-// import {  useTheme } from '@material-ui/core/styles';
-
+import { makeStyles, useTheme } from '@material-ui/core/styles';
+import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
-
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
-
+import Divider from '@material-ui/core/Divider';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import FastfoodIcon from '@material-ui/icons/Fastfood';
-
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
 import TextField from '@material-ui/core/TextField';
-
-import { Avatar } from "@material-ui/core";
-
+import Card from '@material-ui/core/Card';
+import Box from '@material-ui/core/Box';
+import { Avatar, CardMedia } from "@material-ui/core";
+import CardHeader from "@material-ui/core/CardHeader";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
-
+import { spacing } from '@material-ui/system';
+import * as Constant from '../../constants/constant';
 import MultiImageInput from 'react-multiple-image-input';
 import useStyles from '../../assests/style/Style_sale';
 import axios from '../../api';
@@ -27,7 +40,7 @@ export default function NewSalePage({ userName, selectedRow, setItemEdit }) {
 	console.log("sale")
 	const id = v4();
 	const classes = useStyles();
-	// const theme = useTheme();
+	const theme = useTheme();
 	const [open, setOpen] = React.useState(false);
 	const [item, setItem] = useState(selectedRow.productName || "");
 	const [onSalePrice, setonSalePrice] = useState(selectedRow.onSalePrice || 0);
@@ -119,13 +132,13 @@ export default function NewSalePage({ userName, selectedRow, setItemEdit }) {
 		setexpirationDate(materialDateInput);
 
 	};
-	// const handleDrawerOpen = () => {
-	// 	setOpen(true);
-	// };
+	const handleDrawerOpen = () => {
+		setOpen(true);
+	};
 
-	// const handleDrawerClose = () => {
-	// 	setOpen(false);
-	// };
+	const handleDrawerClose = () => {
+		setOpen(false);
+	};
 
 	return (
 		<>

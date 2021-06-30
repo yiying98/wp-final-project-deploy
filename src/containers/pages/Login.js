@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 // import { GlobalContext } from "../../../../Context/GlobalState";
 // import ActionType from "../../../../Context/globalActionType";
 import {
@@ -16,11 +16,11 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import useStyles from "../../assests/style/Style";
 import axios from '../../api';
 import { Redirect } from "react-router-dom";
-// import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 const Login = (props) => {
   const {loggedin,isLogin} = props
   const classes = useStyles();
-  // const history = useHistory();
+  const history = useHistory();
   //const { dispatch } = useContext(GlobalContext);
   const initialState = {
     username: "",
@@ -128,9 +128,9 @@ const Login = (props) => {
           </Button>
           <Grid container>
             <Grid item xs>
-              <Link href="#" variant="body2">
+              {/* <Link href="#" variant="body2">
                 Forgot password?
-              </Link>
+              </Link> */}
             </Grid>
             <Grid item>
               <Link href="/register" variant="body2">

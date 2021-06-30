@@ -5,9 +5,10 @@ import Feature from './feature'
 import Badge from '@material-ui/core/Badge';
 import { withStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
-
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import Button from '@material-ui/core/Button';
-
+import AddIcon from '@material-ui/icons/Add';
+import RemoveIcon from '@material-ui/icons/Remove';
 import Typography from '@material-ui/core/Typography';
 import { ThemeProvider } from '@material-ui/core/styles';
 import { createMuiTheme } from '@material-ui/core/styles';
@@ -18,15 +19,16 @@ import { makeStyles } from '@material-ui/core/styles';
 import Ratings from "./rating";
 import { Avatar, CardMedia } from "@material-ui/core";
 import Box from '@material-ui/core/Box';
-
+import RoomIcon from '@material-ui/icons/Room';
+import CallIcon from '@material-ui/icons/Call';
 import { useParams } from "react-router";
 import axios from '../../../api';
 import Item from '../../../components/Item';
-
+import * as Constant from '../../../constants/constant';
 
 const Detail = () => {
-
-
+    // just for test
+    // TODO: need connect to backend
     const [detailInfo, setDetailInfo] = useState({})
     const [recommand, setRecommand] = useState([]);
     let id = useParams();
@@ -34,7 +36,7 @@ const Detail = () => {
         fetchDetailInfos();
     }, []);
 
-
+    // TODO: can change to Model.findById(_id)
     const fetchDetailInfos = async () => {
         console.log(id);
         try {
@@ -81,7 +83,7 @@ const Detail = () => {
     }
 
 
-    const { productName, onSalePrice, originalPrice, address, traderName, expirationDate, quantity,img } = detailInfo;
+    const { productName, onSalePrice, originalPrice, address, imageUrl, avatarUrl, traderName, discription, expirationDate, quantity,img } = detailInfo;
     var test
     for (var x in img){
         test=img[x]
@@ -93,8 +95,8 @@ const Detail = () => {
 
     
 
-    // const [quality, setQuality] = useState(0);
-    // const [cart, setCart] = useState(0);
+    const [quality, setQuality] = useState(0);
+    const [cart, setCart] = useState(0);
 
     const theme = createMuiTheme({
         typography: {
@@ -105,11 +107,11 @@ const Detail = () => {
         return `-${Math.round(((origin - onsale) * 100) / origin)}% off`;
 
     }
-    // const addCart = () => {
-    //     let number = quality;
-    //     number = cart + number
-    //     setCart(number);
-    // }
+    const addCart = () => {
+        let number = quality;
+        number = cart + number
+        setCart(number);
+    }
 
     const StyledBadge = withStyles((theme) => ({
         badge: {
@@ -267,7 +269,7 @@ const Detail = () => {
                                 Features:
                             </p>
                             <div className="feature-fulfillmemt">
-                                <Feature />
+                                <Feature discription={discription} address={address}/>
                             </div>
                         </div>
 

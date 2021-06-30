@@ -21,6 +21,9 @@ function Shop({user,isSearch, searchType, searchString ,setSearch}) {
       </>
     );
     
+    return (
+      <Salepage userName />
+      )
   }
   
   export default Shop;

@@ -78,29 +78,27 @@ const testData = [
     }
 ];
 
-const menuList = ['首頁', '地圖', '購物車', '我的賣場'];
+const menuList = ['首頁', '地圖', '我的賣場'];
 const menuListIcon = [
     <HomeIcon />,
     <RoomIcon />,
-    <ShoppingCartIcon />,
     <LocalMallIcon />
 ];
 const menuListRoute = [
     '/homepage',
     '/google-map',
-    '/shopping-cart',
     '/my-shop'
 ];
-const appBarList = ['通知', '幫助', '登出'];
+const appBarList = ['登出'];
 const appBarListIcon = [
-    <NotificationsIcon style={{color:'orange'}} />,
-    <HelpOutlineIcon />,
+    // <NotificationsIcon style={{color:'orange'}} />,
+    // <HelpOutlineIcon />,
     <PersonAddIcon style={{color:'yellow'}} />,
     <AccountCircleIcon style={{color:'yellow'}}/>,
 ];
 const appBarListRoute = [
-    '/notification',
-    '/help',
+    // '/notification',
+    // '/help',
     '/',
 ];
 

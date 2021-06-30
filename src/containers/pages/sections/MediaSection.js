@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, makeStyles } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import './MediaSection.css';
-
+import Grid from "@material-ui/core/Grid";
 import Video from '../../../assests/video/appreciate.mp4';
 
 const useStyle = makeStyles((theme)=>({
